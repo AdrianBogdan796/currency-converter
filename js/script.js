@@ -1,34 +1,43 @@
-let formElement = document.querySelector(".js-form");
-let currencyElement = document.querySelector(".js-currency");
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
+{
 
-let rateEUR = 4.68;
-let rateUSD = 4.32;
-let rateJPY = 0.033;
-
-formElement.addEventListener("input", () => {
-
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
-
-    let result;
+const calculateResult = (amount, currency) => {
+    const rateEUR = 4.68;
+    const rateUSD = 4.32;
+    const rateJPY = 0.033;
 
     switch (currency) {
 
         case "EUR":
-            result = amount / rateEUR;
-            break;
+            return amount / rateEUR;
 
         case "USD":
-            result = amount / rateUSD;
-            break;
+            return amount / rateUSD;
 
         case "JPY":
-            result = amount / rateJPY;
-            break;
+            return amount / rateJPY;
     }
+};
+
+const onFormInput = () => {
+
+    const currencyElement = document.querySelector(".js-currency");
+    const amountElement = document.querySelector(".js-amount");
+    const resultElement = document.querySelector(".js-result");
+
+    const currency = currencyElement.value;
+
+    const result = calculateResult(+amountElement.value, currency);
 
     resultElement.innerHTML = `${result.toFixed(2)} ${currency}
     </strong>`;
-});
+};
+
+const init = () => {
+const formElement = document.querySelector(".js-form");
+
+formElement.addEventListener("input", onFormInput);
+};
+
+init();
+
+}
