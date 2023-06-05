@@ -2,4 +2,4 @@
 
 ## Tutaj link do strony 
 
-https://deuxex12.github.io/currency-converter/
+#DEMO[https://deuxex12.github.io/currency-converter/](https://adrianbogdan796.github.io/currency-converter/)
